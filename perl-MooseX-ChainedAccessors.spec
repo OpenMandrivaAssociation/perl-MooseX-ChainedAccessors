@@ -1,9 +1,9 @@
 %define upstream_name    MooseX-ChainedAccessors
-%define upstream_version 0.01
+%define upstream_version 0.02
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:    Accessor class for chained accessors with Moose
 License:    GPL+ or Artistic
@@ -13,6 +13,7 @@ Source0:    http://www.cpan.org/modules/by-module/Moose/%{upstream_name}-%{upstr
 
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(Moose)
+BuildRequires: perl(Module::Build)
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
@@ -23,16 +24,15 @@ Modifies the Accessor Metaclass to use MooseX::ChainedAccessors::Accessor
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%make
+%{__perl} Build.PL installdirs=vendor
+./Build
 
 %check
-%make test
+./Build test
 
 %install
 rm -rf %buildroot
-%makeinstall_std
+./Build install destdir=%buildroot
 
 %clean
 rm -rf %buildroot
