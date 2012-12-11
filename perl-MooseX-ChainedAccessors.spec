@@ -44,3 +44,18 @@ rm -rf %buildroot
 %perl_vendorlib/*
 
 
+
+
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 0.20.0-1mdv2011.0
++ Revision: 655370
+- new version 0.02
+- rebuild for updated spec-helper
+
+* Wed Mar 03 2010 Jérôme Quelin <jquelin@mandriva.org> 0.10.0-1mdv2011.0
++ Revision: 513909
+- import perl-MooseX-ChainedAccessors
+
+
+* Wed Mar 03 2010 cpan2dist 0.01-1mdv
+- initial mdv release, generated with cpan2dist
