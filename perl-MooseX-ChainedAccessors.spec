@@ -3,7 +3,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Release:    2
 
 Summary:    Accessor class for chained accessors with Moose
 License:    GPL+ or Artistic
